@@ -1,88 +1,109 @@
 package test;
 
-import org.json.simple.JSONObject;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class TestExample {
+
+public class TestExample extends RequestTestNG {
 
 	@Test
 	public void testGET() {
-		
-		baseURI = "https://jsonplaceholder.typicode.com";
-		given().
-		contentType(ContentType.JSON).
-		param("id", "100").
-		expect().
-		statusCode(200).
-		body("", hasSize(1)).
-		when().
-		get("/posts").
-		then().
-		log().all();
 
+			baseURI = URL;
+			
+			Response result = given().
+					header("Content-Type","application/json").
+					contentType(ContentType.JSON).
+					expect().
+					statusCode(STATUS_CODE_OK).
+					then().
+					body(notNullValue()).log().all().
+					when().
+					get(PORT);
+
+			result.prettyPrint();
+			
+			@SuppressWarnings("rawtypes")
+			ResponseBody body = result.getBody();
+			
+			Assert.assertEquals(body.asString().contains(PARAM_ID), true, VAR_ID);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testPOST() {
 		
-		JSONObject request = new JSONObject();
+		baseURI = URL;
 		
-		request.put("userId", "11");
-		request.put("title", "EFRA");
-		request.put("body", "Prueba");
-		
-		System.out.println(request.toJSONString());
-		
-		baseURI = "https://jsonplaceholder.typicode.com";
-		given().
+		Response result = given().
+		header("Content-Type","application/json").
 		contentType(ContentType.JSON).
-		body(request.toJSONString()).
-		when().
-		post("/posts").
+		body(requestParam().toJSONString()).log().all().
+		expect().
+		statusCode(STATUS_CODE_OK_POST).
 		then().
-		statusCode(201).
-		log().all();
+		when().
+		post(PORT);
+		
+		result.prettyPrint();
+		
+		@SuppressWarnings("rawtypes")
+		ResponseBody body = result.getBody();
+		
+		Assert.assertEquals(body.asString().contains(PARAM_USERID), true, VAR_USER_ID);
 		
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testPUT() {
-		JSONObject request = new JSONObject();
 		
-		request.put("userId", "11");
-		request.put("title", "EFRA");
-		request.put("body", "Prueba777");
+		baseURI = URL;
 		
-		baseURI = "https://jsonplaceholder.typicode.com";
-		given().
+		Response result = given().
+		header("Content-Type","application/json").
 		contentType(ContentType.JSON).
-		body(request.toJSONString()).
-		when().
-		put("/posts/1").
+		body(requestParam().toJSONString()).log().all().
+		expect().
+		statusCode(STATUS_CODE_OK).
 		then().
-		statusCode(200).
-		log().all();
+		when().
+		put(PORT2);
+		
+		result.prettyPrint();
+		
+		@SuppressWarnings("rawtypes")
+		ResponseBody body = result.getBody();
+		
+		Assert.assertEquals(body.asString().contains(PARAM_USERID), true, VAR_USER_ID);
 	}
 	
 	@Test
 	public void testDelete() {
 		
-		baseURI = "https://jsonplaceholder.typicode.com";
-		given().
-		param("userId", "11").
+		baseURI = URL;
+		
+		Response result = given().
+		header("Content-Type","application/json").
+		contentType(ContentType.JSON).
+		param(PARAM_USERID, VAR_USER_ID).log().all().
 		expect().
-		statusCode(200).
-		when().
-		delete("/posts/1").
+		statusCode(STATUS_CODE_OK).
 		then().
-		log().all();
+		when().
+		delete(PORT2);
+		
+		result.prettyPrint();
+		
+		@SuppressWarnings("rawtypes")
+		ResponseBody body = result.getBody();
+		
+		Assert.assertEquals(body.asString().contains(""), true, "");
 	}
 
 }
