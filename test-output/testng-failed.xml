@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.TestExample">
+      <class name="com.techgeeknext.controller.EmployeeControllerTest">
         <methods>
-          <include name="testDelete"/>
+          <include name="testEmployeesResponseBody"/>
         </methods>
-      </class> <!-- test.TestExample -->
+      </class> <!-- com.techgeeknext.controller.EmployeeControllerTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

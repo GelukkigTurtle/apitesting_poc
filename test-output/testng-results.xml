@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-08-02T11:55:47 CST" name="Default suite" finished-at="2022-08-02T11:55:48 CST" duration-ms="1533">
+  <suite started-at="2022-08-04T14:07:19 CST" name="Default suite" finished-at="2022-08-04T14:07:21 CST" duration-ms="1630">
     <groups>
     </groups>
-    <test started-at="2022-08-02T11:55:47 CST" name="Default test" finished-at="2022-08-02T11:55:48 CST" duration-ms="1533">
-      <class name="test.TestExample">
-        <test-method signature="testDelete()[pri:0, instance:test.TestExample@ffaa6af]" started-at="2022-08-02T11:55:47 CST" name="testDelete" finished-at="2022-08-02T11:55:48 CST" duration-ms="1504" status="PASS">
+    <test started-at="2022-08-04T14:07:19 CST" name="Default test" finished-at="2022-08-04T14:07:21 CST" duration-ms="1630">
+      <class name="com.techgeeknext.controller.EmployeeControllerTest">
+        <test-method signature="extractGetEmployeesResponse()[pri:0, instance:com.techgeeknext.controller.EmployeeControllerTest@fba92d3]" started-at="2022-08-04T14:07:19 CST" name="extractGetEmployeesResponse" finished-at="2022-08-04T14:07:20 CST" duration-ms="1143" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testDelete -->
-      </class> <!-- test.TestExample -->
+        </test-method> <!-- extractGetEmployeesResponse -->
+        <test-method signature="testEmployeesResponseBody()[pri:0, instance:com.techgeeknext.controller.EmployeeControllerTest@fba92d3]" started-at="2022-08-04T14:07:20 CST" name="testEmployeesResponseBody" finished-at="2022-08-04T14:07:21 CST" duration-ms="313" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmployeesResponseBody -->
+        <test-method signature="testEmployeesStatus()[pri:0, instance:com.techgeeknext.controller.EmployeeControllerTest@fba92d3]" started-at="2022-08-04T14:07:21 CST" name="testEmployeesStatus" finished-at="2022-08-04T14:07:21 CST" duration-ms="15" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmployeesStatus -->
+        <test-method signature="testGetEmployeeWithParam()[pri:0, instance:com.techgeeknext.controller.EmployeeControllerTest@fba92d3]" started-at="2022-08-04T14:07:21 CST" name="testGetEmployeeWithParam" finished-at="2022-08-04T14:07:21 CST" duration-ms="64" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetEmployeeWithParam -->
+        <test-method signature="testPostEmployee()[pri:0, instance:com.techgeeknext.controller.EmployeeControllerTest@fba92d3]" started-at="2022-08-04T14:07:21 CST" name="testPostEmployee" finished-at="2022-08-04T14:07:21 CST" duration-ms="59" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPostEmployee -->
+      </class> <!-- com.techgeeknext.controller.EmployeeControllerTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
