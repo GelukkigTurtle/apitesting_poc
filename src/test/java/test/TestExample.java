@@ -1,17 +1,32 @@
 package test;
 
+import org.json.simple.JSONObject;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
+import test.springBoot.DemoApplication;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 
-public class TestExample extends RequestTestNG {
+@SpringBootTest(classes = DemoApplication.class)
+public class TestExample extends AbstractTestNGSpringContextTests implements RequestTestNG {
+
+	public JSONObject requestParam() {
+		JSONObject request = new JSONObject();
+
+		request.put(PARAM_USERID, VAR_USER_ID);
+		request.put(PARAM_TITLE, "EFRA");
+		request.put(PARAM_BODY, "Prueba");
+
+		return request;
+	}
 
 	@Test
 	public void testGET() {

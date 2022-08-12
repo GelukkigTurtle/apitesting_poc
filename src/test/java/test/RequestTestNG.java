@@ -2,7 +2,7 @@ package test;
 
 import org.json.simple.JSONObject;
 
-public class RequestTestNG {
+public interface RequestTestNG {
 	
 	//URL
 	static String URL = "https://jsonplaceholder.typicode.com";
@@ -19,19 +19,7 @@ public class RequestTestNG {
 	
 	static String VAR_USER_ID = "11";
 	static String VAR_ID = "100";
-	
-	//Json params send
-	@SuppressWarnings("unchecked")
-	public JSONObject requestParam() {
-		JSONObject request = new JSONObject();
-		
-		request.put(PARAM_USERID, VAR_USER_ID);
-		request.put(PARAM_TITLE, "EFRA");
-		request.put(PARAM_BODY, "Prueba");
-		
-		return request;
-	}
-	
+
 	
 
 }

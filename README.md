@@ -1,2 +1,1 @@
-# apitesting_poc
-a simple POC of api's testing 
+## Spring Boot with Rest Assured and TestNG Integration
